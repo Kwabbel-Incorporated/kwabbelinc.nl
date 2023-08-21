@@ -1,4 +1,6 @@
-<template></template>
+<template>
+  <Navbar />
+</template>
 
 <script lang="ts">
 export default {
