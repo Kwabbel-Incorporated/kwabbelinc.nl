@@ -16,7 +16,7 @@ export default {
 
 <style scoped>
 .btn {
-  color: white;
+  color: #d2d2d2;
   text-decoration: none;
   font-weight: 500;
 }
@@ -28,7 +28,6 @@ li {
   padding: 0px 1.5rem 0px 1.5rem;
   height: 51px;
   border-radius: 0.5rem;
-  color: white;
   text-decoration: none;
 }
 li:hover {

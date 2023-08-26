@@ -38,6 +38,6 @@ span.company-name {
   font-weight: 600;
   font-size: 1.25rem;
   margin: 0.25rem 0 0 0.6rem;
-  color: white;
+  color: #d2d2d2;
 }
 </style>
