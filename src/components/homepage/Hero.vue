@@ -1,15 +1,25 @@
 <template>
   <div class="container">
     <div>
-      <div class="title">
-        <h1>{{ contentData.title.content }}</h1>
+      <div>
+        <div class="title">
+          <h1>{{ contentData.title.content }}</h1>
+        </div>
+        <p>
+          {{ contentData.text.content }}
+        </p>
+        <a
+          v-if="contentData.link.content.startsWith('http')"
+          :href="contentData.link.content"
+          class="btn"
+          >{{ contentData.linkText.content.toUpperCase() }}</a
+        >
+        <router-link v-else class="btn" :to="contentData.link.content ?? '/'">{{
+          contentData.linkText.content.toUpperCase()
+        }}</router-link>
       </div>
-      <p>
-        {{ contentData.text.content }}
-      </p>
-      <a :href="contentData.link.content">{{ contentData.linkText.content }}</a>
+      <img src="/img/uploaded/hero/shield.webp" alt="hero image" />
     </div>
-    <img src="/img/uploaded/hero/shield.webp" alt="hero image" />
   </div>
 </template>
 
@@ -65,34 +75,72 @@ export default {
 
 <style scoped>
 .container {
+  display: grid;
   width: 100%;
-  min-height: 100vh;
-  margin-top: 67px;
+  place-items: center;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-color: #1d1d1d;
+  color: #d2d2d2;
 }
 
 .container div {
   z-index: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
   max-width: 80rem;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.container div div {
   flex-direction: column;
 }
 
-.container img {
+.container div img {
   max-width: 32rem;
-  border-bottom: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.btn {
+  color: #d2d2d2;
+  width: fit-content;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1rem;
+  height: 3rem;
+  color: #b8dcff;
+  display: flex;
+  align-items: center;
+  background-color: #1c4e80;
+  padding: 0px 1rem 0px 1rem;
+  border-radius: 0.25rem;
+  transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #163e66;
+}
+
+.btn:active {
+  background-color: #052d55;
+  scale: 0.9;
 }
 
 .title {
   height: 4rem;
+  font-size: 1.5rem;
+  font-weight: 500;
   overflow: hidden;
   border-right: 0.15rem solid rgb(71, 117, 206);
   white-space: nowrap;
   line-height: 1.5;
-  margin: 0 auto;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.25em;
   animation: typing 2s steps(24, end), blink-caret 0.75s step-end infinite;
+  border-width: 0.5rem;
+  padding: 0rem !important;
 }
 
 @keyframes typing {
