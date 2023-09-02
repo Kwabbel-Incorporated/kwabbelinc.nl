@@ -98,6 +98,12 @@ export default {
   flex-direction: column;
 }
 
+.container div div p {
+  margin-bottom: 0.6rem;
+  margin-top: 0.2rem;
+  line-height: 1.5rem;
+}
+
 .container div img {
   max-width: 32rem;
   border-radius: 0.5rem;
@@ -141,6 +147,10 @@ export default {
   animation: typing 2s steps(24, end), blink-caret 0.75s step-end infinite;
   border-width: 0.5rem;
   padding: 0rem !important;
+}
+
+.title h1 {
+  margin: 0px 0px 0px 0px;
 }
 
 @keyframes typing {
