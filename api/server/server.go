@@ -22,6 +22,7 @@ func StartServer() {
     router.Use(cors.New(config))
 
     routes.SetupTextContentRoutes(router)
+	routes.SetupArticlesRoutes(router)
 
     err := router.Run("localhost:8080")
     if err != nil {
