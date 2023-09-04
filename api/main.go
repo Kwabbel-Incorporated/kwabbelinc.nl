@@ -8,16 +8,11 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"github.com/Kwabbel-Incorporated/kwabbelinc.nl/models"
+	"github.com/Kwabbel-Incorporated/kwabbelinc.nl/util"
 )
-
-type TextContent struct {
-	ContentID uint `json:"content_id" gorm:"primaryKey"`
-	ContentType string `json:"content_type"`
-	ContentText string `json:"content_text"`
-}
 
 var (
 	db *gorm.DB
@@ -25,7 +20,7 @@ var (
 )
 
 func main() {
-	loadEnvVariables()
+	util.LoadEnvVariables()
 	connectDatabase()
 	gin.SetMode(gin.ReleaseMode)
 
@@ -44,14 +39,6 @@ func main() {
 	  log.Fatal("Failed to start server:", err)
 	}
   }
-  
-
-func loadEnvVariables() {
-	err := godotenv.Load()
-    if err != nil {
-        log.Fatal("Error loading .env file")
-    }
-}
 
 func connectDatabase() {
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
@@ -67,19 +54,18 @@ func connectDatabase() {
 		log.Fatal("Failed to connect to database:", err)
 	}
 
-	db.AutoMigrate(&TextContent{})
+	db.AutoMigrate(&models.TextContent{})
 	log.Println("Succeeded in connecting to the database")
 }
 
 func getTextContent(c *gin.Context) {
-	contentID := c.Param("id")
+    contentID := c.Param("id")
 
-	var textContent TextContent
-	if err := db.Where("content_id = ?", contentID).First(&textContent).Error; err != nil {
-		c.JSON(http.StatusNotFound, gin.H{"error": "Text content not found"})
-		return
-	}
+    var textContent models.TextContent // Gebruik models.TextContent
+    if err := db.Where("content_id = ?", contentID).First(&textContent).Error; err != nil {
+        c.JSON(http.StatusNotFound, gin.H{"error": "Text content not found"})
+        return
+    }
 
-	c.JSON(http.StatusOK, gin.H{"content_text": textContent.ContentText})
+    c.JSON(http.StatusOK, gin.H{"content_text": textContent.ContentText})
 }
-
