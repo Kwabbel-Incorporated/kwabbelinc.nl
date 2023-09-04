@@ -144,5 +144,6 @@ i {
 .readmore {
   font-weight: 600;
   text-decoration: none;
+  color: #1c4e80;
 }
 </style>
