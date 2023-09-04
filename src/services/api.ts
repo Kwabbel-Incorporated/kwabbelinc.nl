@@ -12,3 +12,21 @@ export const fetchTextContent = async (contentId: number) => {
     throw error;
   }
 };
+
+export const fetchLatestArticles = async (latests: number) => {
+  try {
+    const response = await api.get(`/articles/latests/${latests}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const fetchMedia = async (mediaId: number) => {
+  try {
+    const response = await api.get(`/media/${mediaId}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

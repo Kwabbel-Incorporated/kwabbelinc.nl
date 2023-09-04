@@ -23,6 +23,7 @@ func StartServer() {
 
     routes.SetupTextContentRoutes(router)
 	routes.SetupArticlesRoutes(router)
+    routes.SetupMediaRoutes(router)
 
     err := router.Run("localhost:8080")
     if err != nil {
