@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { fetchTextContent } from "../../services/api";
+import { fetchTextContent } from '../../services/api';
 
 interface ContentItem {
   id: number;
@@ -39,14 +39,14 @@ interface ContentData {
 }
 
 export default {
-  name: "Hero",
+  name: 'Hero',
   data() {
     return {
       contentData: {
-        title: { id: 1734096412, content: "" },
-        text: { id: 911646204, content: "" },
-        link: { id: 645557752, content: "" },
-        linkText: { id: 333037067, content: "" },
+        title: { id: 1734096412, content: '' },
+        text: { id: 911646204, content: '' },
+        link: { id: 645557752, content: '' },
+        linkText: { id: 333037067, content: '' },
       } as ContentData,
     };
   },
@@ -144,7 +144,9 @@ export default {
   white-space: nowrap;
   line-height: 1.5;
   letter-spacing: 0.25em;
-  animation: typing 2s steps(24, end), blink-caret 0.75s step-end infinite;
+  animation:
+    typing 2s steps(24, end),
+    blink-caret 0.75s step-end infinite;
   border-width: 0.5rem;
   padding: 0rem !important;
 }

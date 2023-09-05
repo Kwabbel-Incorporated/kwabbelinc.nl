@@ -9,8 +9,8 @@
 </template>
 
 <script lang="ts">
-import { fetchLatestArticles } from "../../services/api";
-import Article from "./Article.vue";
+import { fetchLatestArticles } from '../../services/api';
+import Article from './Article.vue';
 
 interface ArticleData {
   id: number;
@@ -23,7 +23,7 @@ interface ArticleData {
 }
 
 export default {
-  name: "LatestArticles",
+  name: 'LatestArticles',
   components: {
     Article,
   },

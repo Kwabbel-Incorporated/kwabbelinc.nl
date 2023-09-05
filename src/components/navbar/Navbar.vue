@@ -13,11 +13,11 @@
 </template>
 
 <script lang="ts">
-import NavbarBtnLogo from "./NavbarBtnLogo.vue";
-import NavbarBtn from "./NavbarBtn.vue";
+import NavbarBtnLogo from './NavbarBtnLogo.vue';
+import NavbarBtn from './NavbarBtn.vue';
 
 export default {
-  name: "Navbar",
+  name: 'Navbar',
   components: {
     NavbarBtnLogo,
     NavbarBtn,
@@ -27,28 +27,28 @@ export default {
       navBtns: [
         {
           id: 0,
-          text: "Products",
-          link: "/products",
+          text: 'Products',
+          link: '/products',
         },
         {
           id: 1,
-          text: "Services",
-          link: "/services",
+          text: 'Services',
+          link: '/services',
         },
         {
           id: 2,
-          text: "Certified",
-          link: "/certified",
+          text: 'Certified',
+          link: '/certified',
         },
         {
           id: 3,
-          text: "About Kwabbel",
-          link: "/info",
+          text: 'About Kwabbel',
+          link: '/info',
         },
         {
           id: 4,
-          text: "Support",
-          link: "/support",
+          text: 'Support',
+          link: '/support',
         },
       ],
     };

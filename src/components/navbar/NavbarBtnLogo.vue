@@ -7,7 +7,7 @@
 
 <script lang="ts">
 export default {
-  name: "NavbarBtnLogo",
+  name: 'NavbarBtnLogo',
 };
 </script>
 
@@ -15,7 +15,9 @@ export default {
 .homepage-link {
   flex: 1;
   display: flex;
-  transition: 0.2s ease, color 0.2s ease;
+  transition:
+    0.2s ease,
+    color 0.2s ease;
   padding: 0.5rem 1rem 0.5rem 1rem;
   margin: 0.5rem;
   border-radius: 0.5rem;

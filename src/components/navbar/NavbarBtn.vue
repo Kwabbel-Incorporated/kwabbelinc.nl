@@ -6,7 +6,7 @@
 
 <script lang="ts">
 export default {
-  name: "NavbarBtn",
+  name: 'NavbarBtn',
   props: {
     text: String,
     link: String,
@@ -24,7 +24,9 @@ export default {
 li {
   display: flex;
   align-items: center;
-  transition: 0.2s ease, color 0.2s ease;
+  transition:
+    0.2s ease,
+    color 0.2s ease;
   padding: 0px 1.5rem 0px 1.5rem;
   height: 51px;
   border-radius: 0.5rem;

@@ -22,8 +22,8 @@
 </template>
 
 <script lang="ts">
-import { PropType } from "vue";
-import { fetchMedia } from "../../services/api";
+import { PropType } from 'vue';
+import { fetchMedia } from '../../services/api';
 
 interface ArticleData {
   id: number;
@@ -36,14 +36,14 @@ interface ArticleData {
 }
 
 export default {
-  name: "Article",
+  name: 'Article',
   props: {
     articleData: Object as PropType<ArticleData | undefined>,
   },
   data() {
     return {
-      imagePath: "",
-      publishingDate: "",
+      imagePath: '',
+      publishingDate: '',
     };
   },
   created() {
@@ -74,8 +74,8 @@ export default {
         var month = date.getMonth() + 1;
         var year = date.getFullYear();
 
-        this.publishingDate = `${day < 10 ? "0" + day : day}-${
-          month < 10 ? "0" + month : month
+        this.publishingDate = `${day < 10 ? '0' + day : day}-${
+          month < 10 ? '0' + month : month
         }-${year}`;
       }
     },

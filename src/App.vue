@@ -4,10 +4,10 @@
 </template>
 
 <script lang="ts">
-import Navbar from "./components/navbar/Navbar.vue";
+import Navbar from './components/navbar/Navbar.vue';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Navbar,
   },
@@ -15,13 +15,23 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200..900");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200..900');
 
 body {
   margin: 0px;
   background: #212121;
-  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+  font-family:
+    'Montserrat',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
     sans-serif;
 }
 </style>
