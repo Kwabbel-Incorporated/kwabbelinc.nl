@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <figure v-if="articleData">
-      <img :src="imagePath" />
+      <img alt="Article Cover" :src="imagePath" />
     </figure>
     <div>
       <h2 v-if="articleData">{{ articleData.title }}</h2>
