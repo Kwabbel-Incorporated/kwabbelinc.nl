@@ -35,6 +35,7 @@ export default {
 }
 img {
   height: 2rem;
+  aspect-ratio: 0.9/1;
 }
 span.company-name {
   font-weight: 600;

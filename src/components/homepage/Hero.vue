@@ -105,7 +105,8 @@ export default {
 }
 
 .container div img {
-  max-width: 32rem;
+  width: 32rem;
+  aspect-ratio: 1/1;
   border-radius: 0.5rem;
 }
 

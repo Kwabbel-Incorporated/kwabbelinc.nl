@@ -17,5 +17,6 @@ export default {
 <style scoped>
 img {
   height: 3rem;
+  aspect-ratio: 0.9/1;
 }
 </style>
