@@ -48,7 +48,6 @@ export default {
   },
   created() {
     if (this.articleData) {
-      console.log(this.articleData);
       this.loadLatestArticles();
       this.formatPublishingDate();
     }
@@ -61,7 +60,6 @@ export default {
           response = response.media;
 
           this.imagePath = `/img/uploaded/${response.file_path}/${response.filename}.${response.file_type}`;
-          console.log(this.imagePath);
         }
       } catch (error) {
         console.error(error);
