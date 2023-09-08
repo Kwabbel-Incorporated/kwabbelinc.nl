@@ -1,7 +1,7 @@
 <template>
   <router-link class="homepage-link" to="/">
-    <img src="img/logo.png" alt="Kwabbel, Inc. Logo" />
-    <span class="company-name">Kwabbel, Incorporated</span>
+    <img src="/img/logo.png" alt="Kwabbel, Inc. Logo" />
+    <span class="company-name">Kwabbel Incorporated</span>
   </router-link>
 </template>
 
