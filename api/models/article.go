@@ -9,5 +9,4 @@ type Article struct {
     Title       string    `json:"title"`
     Subtitle    string    `json:"subtitle"`
     MainImage   int       `json:"main_image" gorm:"foreignKey:ID;references:media_id"`
-    Content     string    `json:"content"`
 }

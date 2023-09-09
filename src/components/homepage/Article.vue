@@ -32,7 +32,6 @@ interface ArticleData {
   title: string;
   subtitle: string;
   main_image: number;
-  content: string;
 }
 
 export default {

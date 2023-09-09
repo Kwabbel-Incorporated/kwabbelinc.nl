@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: 'http://localhost:8080',
 });
 
 export const fetchTextContent = async (contentId: number) => {
@@ -17,6 +17,24 @@ export const fetchLatestArticles = async (latests: number) => {
   try {
     const response = await api.get(`/articles/latests/${latests}`);
     return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const fetchArticle = async (id: number) => {
+  try {
+    const response = await api.get(`/articles/${id}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const fetchArticleContent = async (id: number) => {
+  try {
+    const response = await api.get(`/articles/content/${id}`);
+    return response;
   } catch (error) {
     throw error;
   }
