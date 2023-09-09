@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="content" v-if="articleData">
+  <div class="container" v-if="articleData">
+    <div class="content">
       <Cover
         :author="articleData.author"
         :mainImage="articleData.main_image"
@@ -9,6 +9,23 @@
         :title="articleData.title"
       />
       <Content :id="articleData.id" />
+    </div>
+  </div>
+  <div class="error" v-else>
+    <div class="content">
+      <h1>Oops! A 404 Error 🙀</h1>
+      <h2>
+        It seems you're trying to read an article that doesn't exist on the
+        all-knowing Kwabbel website!
+      </h2>
+      <p>
+        Check if there are no mistakes in the URL. Otherwise, try again later!
+        Or maybe the article has been deleted...
+      </p>
+      <p>
+        If you keep encountering this issue, please contact the Kwabbel, Inc.
+        support team. 😺
+      </p>
     </div>
   </div>
 </template>
@@ -91,10 +108,21 @@ export default {
   justify-content: center;
 }
 
-.content {
+.container .content {
   max-width: 45rem;
   margin: 0rem 1.5rem;
   box-sizing: inherit;
   width: 100%;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0rem 1.5rem;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  color: #d2d2d2;
 }
 </style>
