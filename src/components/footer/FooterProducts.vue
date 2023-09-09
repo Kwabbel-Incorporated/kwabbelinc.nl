@@ -65,8 +65,6 @@ export default {
           element.text.content = textResponses[index].content_text;
           element.link.content = linkResponses[index].content_text;
         });
-
-        console.log(this.footerLinks);
       } catch (error) {
         console.error(error);
       }
