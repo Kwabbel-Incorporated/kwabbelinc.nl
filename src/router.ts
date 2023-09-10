@@ -1,23 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from './views/Home.vue';
-import Article from './views/Article.vue';
-import Coffee from './views/Coffee.vue';
 
 export default createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: '/',
-      component: Home,
+      component: () => import('./views/Home.vue'),
     },
     {
       path: '/article/:id',
-      component: Article,
+      component: () => import('./views/Article.vue'),
       props: true,
     },
     {
       path: '/brewcoffee',
-      component: Coffee,
+      component: () => import('./views/Coffee.vue'),
     },
   ],
 });
