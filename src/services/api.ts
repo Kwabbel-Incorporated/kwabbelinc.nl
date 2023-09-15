@@ -4,6 +4,15 @@ const api = axios.create({
   baseURL: 'http://localhost:8080',
 });
 
+export const fetchHero = async () => {
+  try {
+    const response = await api.get('/hero');
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const fetchTextContent = async (contentId: number) => {
   try {
     const response = await api.get(`/textcontent/${contentId}`);

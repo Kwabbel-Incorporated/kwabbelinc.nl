@@ -3,19 +3,19 @@
     <div>
       <div>
         <div class="title">
-          <h1>{{ contentData.title.content }}</h1>
+          <h1>{{ heroData.title }}</h1>
         </div>
         <p>
-          {{ contentData.text.content }}
+          {{ heroData.text }}
         </p>
         <a
-          v-if="contentData.link.content.startsWith('http')"
-          :href="contentData.link.content"
+          v-if="heroData.buttonURL.startsWith('http')"
+          :href="heroData.buttonURL"
           class="btn"
-          >{{ contentData.linkText.content.toUpperCase() }}</a
+          >{{ heroData.buttonText.toUpperCase() }}</a
         >
-        <router-link v-else class="btn" :to="contentData.link.content ?? '/'">{{
-          contentData.linkText.content.toUpperCase()
+        <router-link v-else class="btn" :to="heroData.buttonText ?? '/'">{{
+          heroData.buttonText.toUpperCase()
         }}</router-link>
       </div>
       <img src="/img/uploaded/hero/shield.webp" alt="hero image" />
@@ -24,30 +24,18 @@
 </template>
 
 <script lang="ts">
-import { fetchTextContent } from '../../services/api';
-
-interface ContentItem {
-  id: number;
-  content: string;
-}
-
-interface ContentData {
-  title: ContentItem;
-  text: ContentItem;
-  link: ContentItem;
-  linkText: ContentItem;
-}
+import { fetchHero } from '../../services/api';
 
 export default {
   name: 'Hero',
   data() {
     return {
-      contentData: {
-        title: { id: 1734096412, content: '' },
-        text: { id: 911646204, content: '' },
-        link: { id: 645557752, content: '' },
-        linkText: { id: 333037067, content: '' },
-      } as ContentData,
+      heroData: {
+        title: '',
+        text: '',
+        buttonText: '',
+        buttonURL: '',
+      },
     };
   },
   created() {
@@ -56,15 +44,16 @@ export default {
   methods: {
     async loadContent() {
       try {
-        const promises = Object.values(this.contentData).map((item) =>
-          fetchTextContent(item.id)
-        );
-        const responses = await Promise.all(promises);
+        const response = await fetchHero();
 
-        Object.keys(this.contentData).forEach((key, index) => {
-          (this.contentData as any)[key].content =
-            responses[index].content_text;
-        });
+        const { title, text, button_text, button_url } = response;
+
+        this.heroData = {
+          title,
+          text,
+          buttonText: button_text,
+          buttonURL: button_url,
+        };
       } catch (error) {
         console.error(error);
       }
